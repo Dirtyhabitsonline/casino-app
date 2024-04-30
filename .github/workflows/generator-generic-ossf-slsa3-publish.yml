@@ -45,7 +45,7 @@ jobs:
       #
       # ========================================================
       - name: Generate subject for provenance
-        id: hash
+        id: null
         run: |
           set -euo pipefail
 
@@ -56,7 +56,7 @@ jobs:
 
   provenance:
     needs: [build]
-    permissions:
+    permissions: #write
       actions: read   # To read the workflow path.
       id-token: write # To sign the provenance.
       contents: write # To add assets to a release.
